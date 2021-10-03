@@ -57,7 +57,7 @@ func (t *kacTemplateBuilderImpl) unreleased(style, format string) string {
 		title = fmt.Sprintf("[%s]", title)
 	}
 
-	return fmt.Sprintf(`{{ if .Versions -}}
+	return fmt.Sprintf(`{{ if .Unreleased -}}
 %s## %s
 
 {{ if .Unreleased.CommitGroups -}}
