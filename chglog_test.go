@@ -70,7 +70,7 @@ func cleanup() {
 
 func TestGeneratorNotFoundTags(t *testing.T) {
 	assert := assert.New(t)
-	testName := "not_found"
+	testName := "no_tags"
 
 	setup(testName, func(commit commitFunc, _ tagFunc, _ gitcmd.Client) {
 		commit("2018-01-01 00:00:00", "feat(*): New feature", "")
@@ -89,11 +89,10 @@ func TestGeneratorNotFoundTags(t *testing.T) {
 
 	buf := &bytes.Buffer{}
 	err := gen.Generate(buf, "")
-	expected := strings.TrimSpace(buf.String())
+	actual := strings.TrimSpace(buf.String())
 
-	assert.Error(err)
-	assert.Contains(err.Error(), "zero git-tags were found")
-	assert.Equal("", expected)
+	assert.Equal(nil, err)
+	assert.Contains(actual, "<a name=\"unreleased\"></a>\n## [Unreleased]")
 }
 
 func TestGeneratorNotFoundCommits(t *testing.T) {

@@ -2,7 +2,6 @@
 package chglog
 
 import (
-	"errors"
 	"fmt"
 	"io"
 	"log"
@@ -132,11 +131,10 @@ func NewGenerator(logger *Logger, config *Config) *Generator {
 // Generate gets the commit based on the specified tag `query` and writes the result to `io.Writer`
 //
 // tag `query` can be specified with the following rule
-//
-//	<old>..<new> - Commit contained in `<new>` tags from `<old>` (e.g. `1.0.0..2.0.0`)
-//	<tagname>..  - Commit from the `<tagname>` to the latest tag (e.g. `1.0.0..`)
-//	..<tagname>  - Commit from the oldest tag to `<tagname>` (e.g. `..1.0.0`)
-//	<tagname>    - Commit contained in `<tagname>` (e.g. `1.0.0`)
+//  <old>..<new> - Commit contained in `<new>` tags from `<old>` (e.g. `1.0.0..2.0.0`)
+//  <tagname>..  - Commit from the `<tagname>` to the latest tag (e.g. `1.0.0..`)
+//  ..<tagname>  - Commit from the oldest tag to `<tagname>` (e.g. `..1.0.0`)
+//  <tagname>    - Commit contained in `<tagname>` (e.g. `1.0.0`)
 func (gen *Generator) Generate(w io.Writer, query string) error {
 	back, err := gen.workdir()
 	if err != nil {
@@ -149,7 +147,7 @@ func (gen *Generator) Generate(w io.Writer, query string) error {
 	}()
 
 	tags, first, err := gen.getTags(query)
-	if err != nil {
+	if err != nil && err != errNoGitTag {
 		return err
 	}
 
@@ -163,7 +161,8 @@ func (gen *Generator) Generate(w io.Writer, query string) error {
 		return err
 	}
 
-	if len(versions) == 0 {
+	// Err when there are no versions, but tags exists or a query was test.
+	if len(versions) == 0 && (len(tags) > 0 || query != "") {
 		return fmt.Errorf("commits corresponding to \"%s\" was not found", query)
 	}
 
@@ -285,8 +284,10 @@ func (gen *Generator) getTags(query string) ([]*Tag, string, error) {
 		}, tags...)
 	}
 
-	if len(tags) == 0 {
-		return nil, "", errors.New("zero git-tags were found")
+	// When query is set but no tags are returned, then err,
+	// otherwise the repo has no tags at all and proceed.
+	if len(tags) == 0 && query != "" {
+		return nil, "", errNoGitTag
 	}
 
 	first := ""
