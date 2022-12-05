@@ -2,6 +2,18 @@
 ## [Unreleased]
 
 
+<a name="v0.16.0"></a>
+## [v0.16.0] - 2022-12-05
+### Bug Fixes
+- the sort order of commits is unstable [#210](https://github.com/git-chglog/git-chglog/issues/210)
+
+### Features
+- Add multiline commits support
+- Add Commits to Unreleased
+- update test to include changed files
+- track changed files for commit
+
+
 <a name="v0.15.1"></a>
 ## [v0.15.1] - 2021-12-14
 ### Bug Fixes
@@ -11,6 +23,7 @@
 - **deps:** update module github.com/alecaivazis/survey/v2 to v2.2.15 ([#163](https://github.com/git-chglog/git-chglog/issues/163))
 
 ### Chores
+- update changelog for v0.15.1
 - ignore .vscode
 - **deps:** update all non-major dependencies docker tags ([#168](https://github.com/git-chglog/git-chglog/issues/168))
 
@@ -398,7 +411,8 @@
 - First implement
 
 
-[Unreleased]: https://github.com/git-chglog/git-chglog/compare/v0.15.1...HEAD
+[Unreleased]: https://github.com/git-chglog/git-chglog/compare/v0.16.0...HEAD
+[v0.16.0]: https://github.com/git-chglog/git-chglog/compare/v0.15.1...v0.16.0
 [v0.15.1]: https://github.com/git-chglog/git-chglog/compare/v0.15.0...v0.15.1
 [v0.15.0]: https://github.com/git-chglog/git-chglog/compare/v0.14.2...v0.15.0
 [v0.14.2]: https://github.com/git-chglog/git-chglog/compare/v0.14.1...v0.14.2
