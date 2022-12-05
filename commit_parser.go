@@ -285,6 +285,40 @@ func (p *commitParser) processBody(commit *Commit, input string) {
 	// body
 	commit.Body = input
 
+	opts := p.config.Options
+	if opts.MultilineCommit {
+		// additional headers in body
+		body := p.reNotes.ReplaceAllString(input, "") // strip notes from body
+		inputs := strings.Split(body, "\n")
+		for _, i := range inputs {
+			subCommit := Commit{}
+			// Type, Scope, Subject etc ...
+			res := p.reHeader.FindAllStringSubmatch(i, -1)
+			if len(res) == 0 {
+				continue
+			}
+
+			subCommit.Header = i
+			subCommit.Hash = commit.Hash
+			subCommit.Author = commit.Author
+			subCommit.Committer = commit.Committer
+			subCommit.ChangedFiles = commit.ChangedFiles
+			assignDynamicValues(&subCommit, opts.HeaderPatternMaps, res[0][1:])
+			// refs & mentions
+			if refs := p.parseRefs(i); len(refs) > 0 {
+				subCommit.Refs = refs
+			}
+			if mentions := p.parseMentions(i); len(mentions) > 0 {
+				subCommit.Mentions = p.parseMentions(i)
+			}
+
+			// Jira
+			if subCommit.JiraIssueID != "" {
+				p.processJiraIssue(&subCommit, subCommit.JiraIssueID)
+			}
+			commit.SubCommits = append(commit.SubCommits, &subCommit)
+		}
+	}
 	// notes & refs & mentions
 	commit.Notes = []*Note{}
 	inNote := false
