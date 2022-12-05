@@ -1,3 +1,8 @@
+@@__CHGLOG__@@HASH:15cf1add9735dcc4810dda3312b0792236c97c4e	15cf1add@@__CHGLOG_DELIMITER__@@AUTHOR:tsuyoshi wada	mail@example.com	1514908000@@__CHGLOG_DELIMITER__@@COMMITTER:tsuyoshi wada	mail@example.com	1514908000@@__CHGLOG_DELIMITER__@@SUBJECT:feat(*): Add new feature #123@@__CHGLOG_DELIMITER__@@BODY:
+
+fix(*): Fix 1
+fix(*): Fix 2
+
 @@__CHGLOG__@@HASH:65cf1add9735dcc4810dda3312b0792236c97c4e	65cf1add@@__CHGLOG_DELIMITER__@@AUTHOR:tsuyoshi wada	mail@example.com	1514808000@@__CHGLOG_DELIMITER__@@COMMITTER:tsuyoshi wada	mail@example.com	1514808000@@__CHGLOG_DELIMITER__@@SUBJECT:feat(*): Add new feature #123@@__CHGLOG_DELIMITER__@@BODY:
 
 @@__CHGLOG__@@HASH:14ef0b6d386c5432af9292eab3c8314fa3001bc7	14ef0b6d@@__CHGLOG_DELIMITER__@@AUTHOR:tsuyoshi wada	mail@example.com	1515153600@@__CHGLOG_DELIMITER__@@COMMITTER:tsuyoshi wada	mail@example.com	1515153600@@__CHGLOG_DELIMITER__@@SUBJECT:Merge pull request #3 from username/branchname@@__CHGLOG_DELIMITER__@@BODY:This is body message.

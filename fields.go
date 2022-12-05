@@ -87,6 +87,7 @@ type Commit struct {
 	Body         string
 	TrimmedBody  string // Body without any Notes/Refs/Mentions/CoAuthors/Signers
 	ChangedFiles []string
+	SubCommits   []*Commit // when multiple headers are matched in a single commit
 }
 
 // CommitGroup is a collection of commits grouped according to the `CommitGroupBy` option

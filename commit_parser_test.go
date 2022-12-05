@@ -79,12 +79,72 @@ func TestCommitParserParse(t *testing.T) {
 				NoteKeywords: []string{
 					"BREAKING CHANGE",
 				},
+				MultilineCommit: true,
 			},
 		})
 
 	commits, err := parser.Parse("HEAD")
 	assert.Nil(err)
-	assert.Equal([]*Commit{
+
+	hash := Hash{
+		Long:  "15cf1add9735dcc4810dda3312b0792236c97c4e",
+		Short: "15cf1add",
+	}
+	author := Author{
+		Name:  "tsuyoshi wada",
+		Email: "mail@example.com",
+		Date:  time.Unix(int64(1514908000), 0),
+	}
+	comitter := Committer{
+		Name:  "tsuyoshi wada",
+		Email: "mail@example.com",
+		Date:  time.Unix(int64(1514908000), 0),
+	}
+
+	expected := []*Commit{
+		{
+			Hash:      &hash,
+			Author:    &author,
+			Committer: &comitter,
+			Merge:     nil,
+			Revert:    nil,
+			Refs: []*Ref{
+				{
+					Action: "",
+					Ref:    "123",
+					Source: "",
+				},
+			},
+			Notes:        []*Note{},
+			Mentions:     []string{},
+			Header:       "feat(*): Add new feature #123",
+			Type:         "feat",
+			Scope:        "*",
+			Subject:      "Add new feature #123",
+			Body:         "fix(*): Fix 1\nfix(*): Fix 2",
+			TrimmedBody:  "fix(*): Fix 1\nfix(*): Fix 2",
+			ChangedFiles: []string{"Dockerfile", "go.mod", "go.sum"},
+			SubCommits: []*Commit{
+				{
+					Hash:      &hash,
+					Author:    &author,
+					Committer: &comitter,
+					Header:    "fix(*): Fix 1",
+					Type:      "fix",
+					Scope:     "*",
+					Subject:   "Fix 1",
+				},
+				{
+					Hash:      &hash,
+					Author:    &author,
+					Committer: &comitter,
+					Header:    "fix(*): Fix 2",
+					Type:      "fix",
+					Scope:     "*",
+					Subject:   "Fix 2",
+				},
+			},
+		},
 		{
 			Hash: &Hash{
 				Long:  "65cf1add9735dcc4810dda3312b0792236c97c4e",
@@ -325,7 +385,9 @@ Closes username/repository#456`, "```", "```"),
 			TrimmedBody:  "This reverts commit f755db78dcdf461dc42e709b3ab728ceba353d1d.",
 			ChangedFiles: []string{"Dockerfile", "go.mod", "go.sum"},
 		},
-	}, commits)
+	}
+
+	assert.Equal(expected, commits)
 }
 
 type mockJiraClient struct {

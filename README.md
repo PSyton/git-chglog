@@ -280,6 +280,7 @@ options:
       Type:
         - feat
     sort_by: Scope
+    multiline_commits: false # when true, allows for parsing body and retrieve squashed commits independently
 
   commit_groups:
     group_by: Type
@@ -374,6 +375,7 @@ Options concerning the acquisition and sort of commits.
 |:----------|:---------|:------------|:----------|:----------------------------------------------------------------------------------------------------|
 | `filters` | N        | Map in List | none      | Filter by using `Commit` properties and values. Filtering is not done by specifying an empty value. |
 | `sort_by` | N        | String      | `"Scope"` | Property name to use for sorting `Commit`. See [Commit].                                            |
+| `multiline_commits:` | N | Bool | `false` | Allows for commit body parsing to find change log entries. |
 
 #### `options.commit_groups`
 
