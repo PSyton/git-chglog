@@ -2,10 +2,19 @@
 ## [Unreleased]
 
 
+<a name="v0.16.1"></a>
+## [v0.16.1] - 2022-12-05
+### Bug Fixes
+- Change package name
+
+
 <a name="v0.16.0"></a>
 ## [v0.16.0] - 2022-12-05
 ### Bug Fixes
 - the sort order of commits is unstable [#210](https://github.com/git-chglog/git-chglog/issues/210)
+
+### Chores
+- update changelog for v0.16.0
 
 ### Features
 - Add multiline commits support
@@ -450,9 +459,9 @@
 - First implement
 
 
-==== BASE ====
-[Unreleased]: https://github.com/git-chglog/git-chglog/compare/v0.15.1...HEAD
-==== BASE ====
+[Unreleased]: https://github.com/git-chglog/git-chglog/compare/v0.16.1...HEAD
+[v0.16.1]: https://github.com/git-chglog/git-chglog/compare/v0.16.0...v0.16.1
+[v0.16.0]: https://github.com/git-chglog/git-chglog/compare/v0.15.1...v0.16.0
 [v0.15.1]: https://github.com/git-chglog/git-chglog/compare/v0.15.0...v0.15.1
 [v0.15.0]: https://github.com/git-chglog/git-chglog/compare/v0.14.2...v0.15.0
 [v0.14.2]: https://github.com/git-chglog/git-chglog/compare/v0.14.1...v0.14.2
