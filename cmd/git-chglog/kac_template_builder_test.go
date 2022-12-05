@@ -19,7 +19,7 @@ func TestKACTemplateBuilderDefault(t *testing.T) {
 	})
 
 	assert.Nil(err)
-	assert.Equal(`{{ if .Versions -}}
+	assert.Equal(`{{ if .Unreleased -}}
 <a name="unreleased"></a>
 ## [Unreleased]
 
@@ -90,7 +90,7 @@ func TestKACTemplateBuilderNone(t *testing.T) {
 	})
 
 	assert.Nil(err)
-	assert.Equal(`{{ if .Versions -}}
+	assert.Equal(`{{ if .Unreleased -}}
 ## Unreleased
 
 {{ if .Unreleased.CommitGroups -}}
@@ -150,7 +150,7 @@ func TestKACTemplateBuilderSubject(t *testing.T) {
 	})
 
 	assert.Nil(err)
-	assert.Equal(`{{ if .Versions -}}
+	assert.Equal(`{{ if .Unreleased -}}
 ## Unreleased
 
 {{ if .Unreleased.CommitGroups -}}
