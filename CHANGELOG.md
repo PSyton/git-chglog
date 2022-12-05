@@ -2,6 +2,26 @@
 ## [Unreleased]
 
 
+<a name="v0.16.0"></a>
+## [v0.16.0] - 2022-12-05
+### Bug Fixes
+- the sort order of commits is unstable [#210](https://github.com/git-chglog/git-chglog/issues/210)
+
+### Features
+- Add multiline commits support
+- Add Commits to Unreleased
+- update test to include changed files
+- track changed files for commit
+
+
+### Chores
+- new release due to shecksum mismatch. Closes [#232](https://github.com/git-chglog/git-chglog/issues/232)
+- update changelog for v0.15.3
+- update changelog for v0.15.3
+- bump docker/login-action to v2. Closes [#206](https://github.com/git-chglog/git-chglog/issues/206)
+- bump goreleaser/goreleaser-action to v4. Closes [#208](https://github.com/git-chglog/git-chglog/issues/208)
+
+
 <a name="v0.15.4"></a>
 ## [v0.15.4] - 2023-02-15
 ### Bug Fixes
@@ -430,9 +450,9 @@
 - First implement
 
 
-[Unreleased]: https://github.com/git-chglog/git-chglog/compare/v0.15.4...HEAD
-[v0.15.4]: https://github.com/git-chglog/git-chglog/compare/v0.15.2...v0.15.4
-[v0.15.2]: https://github.com/git-chglog/git-chglog/compare/v0.15.1...v0.15.2
+==== BASE ====
+[Unreleased]: https://github.com/git-chglog/git-chglog/compare/v0.15.1...HEAD
+==== BASE ====
 [v0.15.1]: https://github.com/git-chglog/git-chglog/compare/v0.15.0...v0.15.1
 [v0.15.0]: https://github.com/git-chglog/git-chglog/compare/v0.14.2...v0.15.0
 [v0.14.2]: https://github.com/git-chglog/git-chglog/compare/v0.14.1...v0.14.2
