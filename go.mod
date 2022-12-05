@@ -1,4 +1,4 @@
-module github.com/git-chglog/git-chglog
+module github.com/PSyton/git-chglog
 
 go 1.18
 
