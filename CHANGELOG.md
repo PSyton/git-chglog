@@ -2,19 +2,21 @@
 ## [Unreleased]
 
 
-<a name="v0.16.1"></a>
-## [v0.16.1] - 2022-12-05
+<a name="v0.16.2"></a>
+## [v0.16.2] - 2024-09-17
 ### Bug Fixes
 - Change package name
-
-
-<a name="v0.16.0"></a>
-## [v0.16.0] - 2022-12-05
-### Bug Fixes
 - the sort order of commits is unstable [#210](https://github.com/git-chglog/git-chglog/issues/210)
+- **deps:** update all non-major dependencies ([#240](https://github.com/git-chglog/git-chglog/issues/240))
+- **deps:** update all non-major dependencies ([#236](https://github.com/git-chglog/git-chglog/issues/236))
+- **deps:** update module github.com/kyokomi/emoji/v2 to v2.2.12 ([#233](https://github.com/git-chglog/git-chglog/issues/233))
+- **deps:** update module github.com/urfave/cli/v2 to v2.24.4 ([#229](https://github.com/git-chglog/git-chglog/issues/229))
 
 ### Chores
+- Update deps and go version
+- update changelog for v0.16.1
 - update changelog for v0.16.0
+- **deps:** update actions/setup-go action to v5 ([#264](https://github.com/git-chglog/git-chglog/issues/264))
 
 ### Features
 - Add multiline commits support
@@ -23,16 +25,15 @@
 - track changed files for commit
 
 
-### Chores
-- new release due to shecksum mismatch. Closes [#232](https://github.com/git-chglog/git-chglog/issues/232)
-- update changelog for v0.15.3
-- update changelog for v0.15.3
-- bump docker/login-action to v2. Closes [#206](https://github.com/git-chglog/git-chglog/issues/206)
-- bump goreleaser/goreleaser-action to v4. Closes [#208](https://github.com/git-chglog/git-chglog/issues/208)
-
-
 <a name="v0.15.4"></a>
 ## [v0.15.4] - 2023-02-15
+### Chores
+- update changelog for v0.15.4
+- new release due to shecksum mismatch. Closes [#232](https://github.com/git-chglog/git-chglog/issues/232)
+
+
+<a name="v0.15.3"></a>
+## [v0.15.3] - 2023-02-11
 ### Bug Fixes
 - release process ([#231](https://github.com/git-chglog/git-chglog/issues/231))
 - **ci:** add integration test with docker image ([#226](https://github.com/git-chglog/git-chglog/issues/226))
@@ -41,7 +42,6 @@
 - **deps:** update all non-major dependencies ([#223](https://github.com/git-chglog/git-chglog/issues/223))
 
 ### Chores
-- new release due to shecksum mismatch. Closes [#232](https://github.com/git-chglog/git-chglog/issues/232)
 - update changelog for v0.15.3
 - update changelog for v0.15.3
 - bump docker/login-action to v2. Closes [#206](https://github.com/git-chglog/git-chglog/issues/206)
@@ -60,6 +60,30 @@
 - update Go install instructions ([#205](https://github.com/git-chglog/git-chglog/issues/205))
 - bump golang to 1.19 ([#218](https://github.com/git-chglog/git-chglog/issues/218))
 - **deps:** update all non-major dependencies ([#220](https://github.com/git-chglog/git-chglog/issues/220))
+
+
+<a name="v0.16.1"></a>
+## [v0.16.1] - 2022-12-05
+### Bug Fixes
+- Change package name
+
+### Chores
+- update changelog for v0.16.1
+
+
+<a name="v0.16.0"></a>
+## [v0.16.0] - 2022-12-05
+### Bug Fixes
+- the sort order of commits is unstable [#210](https://github.com/git-chglog/git-chglog/issues/210)
+
+### Chores
+- update changelog for v0.16.0
+
+### Features
+- Add multiline commits support
+- Add Commits to Unreleased
+- update test to include changed files
+- track changed files for commit
 
 
 <a name="v0.15.1"></a>
@@ -459,7 +483,11 @@
 - First implement
 
 
-[Unreleased]: https://github.com/git-chglog/git-chglog/compare/v0.16.1...HEAD
+[Unreleased]: https://github.com/git-chglog/git-chglog/compare/v0.16.2...HEAD
+[v0.16.2]: https://github.com/git-chglog/git-chglog/compare/v0.15.4...v0.16.2
+[v0.15.4]: https://github.com/git-chglog/git-chglog/compare/v0.15.3...v0.15.4
+[v0.15.3]: https://github.com/git-chglog/git-chglog/compare/v0.15.2...v0.15.3
+[v0.15.2]: https://github.com/git-chglog/git-chglog/compare/v0.16.1...v0.15.2
 [v0.16.1]: https://github.com/git-chglog/git-chglog/compare/v0.16.0...v0.16.1
 [v0.16.0]: https://github.com/git-chglog/git-chglog/compare/v0.15.1...v0.16.0
 [v0.15.1]: https://github.com/git-chglog/git-chglog/compare/v0.15.0...v0.15.1
